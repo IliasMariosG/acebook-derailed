@@ -8,5 +8,4 @@ feature "test index" do
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
   end
-
 end
