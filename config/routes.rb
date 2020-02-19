@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   get 'posts/index'
 
   
@@ -16,7 +17,9 @@ Rails.application.routes.draw do
   resources :posts
   
   resources :users do
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
   end
 
   resources :posts, only: [:index]

@@ -21,6 +21,7 @@
         by <a href='/users/<%= @user.id%>'><%= @user.email %>.</a>
       </p>
     </footer>
+    <%= render 'partials/_form', comment: @comment %>
     <%
 =begin%>
  <article class='comments'>
