@@ -1,5 +1,17 @@
-<%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
+<%
+=begin%>
+ <%= form_for :comment do |form| %> 
+<%
+=end%>
+<%
+=begin%>
+ <%= form_for :comment, url: {controller: 'comments', action: 'create'} do |form| %> 
+<%
+=end%>
+ <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+  <%
+=begin%>
+ <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
@@ -9,7 +21,9 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> 
+<%
+=end%>
 
   <div class="field">
     <%= form.label :message %>
