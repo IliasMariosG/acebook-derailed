@@ -25,6 +25,7 @@
       <a class="navbar-brand" href="/users/<%= session[:user_id] %>"><%= User.find(session[:user_id]).email %></a>
       <%end%>
     </div>
+   
     <ul class="nav navbar-nav navbar-left">
       <% if session[:user_id] %>
         <li><%= link_to 'New post', new_post_path %></li>
@@ -48,6 +49,7 @@
   </div>
 </nav>
 </div>
+
 
 
   <p id=”notice”><%= flash[:notice] %></p>
