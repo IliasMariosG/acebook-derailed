@@ -27,10 +27,13 @@ Documentation:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 40
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 15
 
 Metrics/LineLength:
-  Max: 100
+  Max: 130
 
 RSpec/MultipleExpectations:
   Max: 2
