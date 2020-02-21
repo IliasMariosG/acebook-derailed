@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to posts_url
+    @post.post_type == 'public' ? (redirect_to posts_url) : (redirect_to "/users/#{@post.recipient_id}")
   end
 
   def edit
@@ -26,8 +26,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    # @current_user = session[:users_id]
     @posts = Post.where('post_type = ?', 'public').order(created_at: :desc)
+    # @comments = Comment.where('posts_id = ?', params[:id] )
   end
 
   def destroy

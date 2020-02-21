@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # p params['id']
+    p params['id']
     # @posts = Post.find_by(recipient_id: params['id'], post_type: 'wall' ).to_a
     @posts = Post.where(recipient_id: params['id'], post_type: 'wall')
   end

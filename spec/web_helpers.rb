@@ -8,7 +8,6 @@ def sign_up
   click_button 'create'
 end
 
-
 def sign_up2
   visit '/'
   click_link 'Sign Up'
