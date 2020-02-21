@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  
+  resources :friends
+
   get 'posts/index'
 
   get '/posts/:id/edit', to: 'posts#edit'
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#login'
   post 'login', to: 'sessions#login_attempt'
   get 'logout', to: 'sessions#logout'
+  patch 'friends/:id/confirm',to: 'friends#confirm', as: :confirm
 
   root 'sessions#login'
 end
