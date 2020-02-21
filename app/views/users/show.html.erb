@@ -6,13 +6,13 @@
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
   <%= form.label :message %>
   <%= form.text_area(:message, :size => "60x10") %>
-  <% hidden_field(:post, :recipient_id, value: params['id']) %>
-  <% hidden_field(:post, :post_type, value: 'wall') %>
+  <%= hidden_field(:post, :recipient_id, value: params['id']) %>
+  <%= hidden_field(:post, :post_type, value: 'wall') %>
   <%= form.submit "Submit" %>
 <% end %>
 
 <article class='posts'>
-<% if @posts %>
+<% if @posts.any? %>
  <% @posts.each do |post| %>
   <% @user = User.find(post.users_id) %>
   <article class="post" id='<%= post.id %>'>
@@ -24,12 +24,12 @@
         <p>
           posted at
           <time datetime= <%= post.created_at %> ></time>
-          by <a href='users/<%=@user.id%>'><%= @user.email %>.</a>
+          by <a href='/users/<%=@user.id%>'><%= @user.email %>.</a>
         </p>
     </footer>
   </article>
   <% end %>
-  <% else %>
+<% else %>
   <h1>There is nothing to display</h1>
 <% end %> 
 
