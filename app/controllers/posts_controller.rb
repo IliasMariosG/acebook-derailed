@@ -23,7 +23,9 @@ class PostsController < ApplicationController
   end
    
   def index
+    p params
     # @current_user = session[:users_id]
+    @comments = Comment.where('posts_id = ?', params[:id] )
     @posts = Post.order(created_at: :desc)
   end
 

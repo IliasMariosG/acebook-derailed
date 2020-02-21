@@ -26,9 +26,9 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @post = Post.find([:post_id])
+    # @post = Post.find([:post_id])
     # @comment = Comment.new(comment_params)
-    @comment = Post.comments.create(comment_params)
+    @comment = Comment.create(comment_params)
     @comment.user_id = @current_user.id
 
     respond_to do |format|
@@ -75,6 +75,7 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:message)
+      default = { users_id: @current_user.id }
+      params.require(:comment).permit(:message, :users_id, :posts_id).reverse_merge(default)
     end
 end

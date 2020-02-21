@@ -20,18 +20,21 @@
         <time datetime='<%= post.created_at %>' ></time>
         by <a href='/users/<%= @user.id%>'><%= @user.email %>.</a>
       </p>
-    </footer>
-    <%
-=begin%>
- <%= link_to "Add Comment", new_user_post_comment_path(user_id: @current_user.id, post_id: post.id) %> 
-<%
-=end%>
-    <%= render 'comments/form', :locals => { @post: post} %>
-    <%
-=begin%>
- <article class='comments'>
+    </footer> 
+    <%= form_with scope: :comment, url: comments_create_path, local: true do |form| %>
+      <%= form.label :message %>
+      <%= form.text_area(:message, :size => "60x10") %>
+      <% hidden_field(:comment, :posts_id, value: post.id) %>
+      <%= form.submit "Submit" %>
+    <% end %>
+  <article class='comments'>
       <% @comments.each do |comment| %>
       <% @user = User.find(comment.users_id) %>
+       <%
+=begin%>
+ each comment 
+<%
+=end%>
       <article class="comment" id='<%= comment.id %>'>
         <header>
           <p> <%= comment.message %> </p>
@@ -44,10 +47,8 @@
             by <a href='/users/<%= @user.id%>'><%= @user.email %>.</a>
           </p>
         </footer>
-        <% end %>
-    </article> 
-<%
-=end%>
+      </article> 
+      <%end%>
   </article>
 <% end %>
 </article>
