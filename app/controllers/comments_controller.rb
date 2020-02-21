@@ -25,16 +25,18 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    p params
-    # @post = Post.find([:post_id])
     @comment = Comment.new(comment_params)
-    p @comment
     if @comment.save
-    redirect_to posts_index_path, notice: 'Comment was successfully created.'
+      post = Post.find(@comment.posts_id)
+      if post.post_type == 'public'
+        redirect_to posts_index_path, notice: 'Comment was successfully created.'
+      else
+        redirect_to "/users/#{post.recipient_id}", notice: 'Comment was successfully created.'
+      end
     else
       p @comment.errors
     end
-    # redirect 'posts/index'
+
   end
 
   # PATCH/PUT /comments/1
