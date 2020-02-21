@@ -5,7 +5,7 @@
   
 * 'Documentation' [![Inline docs](http://inch-ci.org/github/basselalsayed/acebook-derailed.svg?branch=master)](http://inch-ci.org/github/basselalsayed/acebook-derailed)
 
-* 'Continuous Integration' [![Build Status](https://travis-ci.org/github/basselalsayed/acebook-derailed.png?branch=master)](https://travis-ci.org/github/basselalsayed/acebook-derailed)
+* 'Continuous Integration' [![Build Status](https://travis-ci.org/basselalsayed/acebook-derailed.svg?branch=master)](https://travis-ci.org/basselalsayed/acebook-derailed)
 
 
 # AceBook Derailed
