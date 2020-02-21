@@ -10,13 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20200220130817) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "comments", force: :cascade do |t|
     t.text "message"
@@ -27,7 +24,7 @@ ActiveRecord::Schema.define(version: 20200220130817) do
     t.index ["posts_id"], name: "index_comments_on_posts_id"
     t.index ["users_id"], name: "index_comments_on_users_id"
   end
-  
+
   create_table "friends", force: :cascade do |t|
     t.bigint "friend_id"
     t.bigint "recipient_friend_id"

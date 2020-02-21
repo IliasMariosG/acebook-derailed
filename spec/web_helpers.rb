@@ -22,7 +22,6 @@ def log_in_2
   click_button 'Log In'
 end
 
-
 def log_in
   fill_in 'Email', with: 'ben@gmail.com'
   fill_in 'Password', with: 'Password'
