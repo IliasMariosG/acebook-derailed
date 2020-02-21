@@ -26,8 +26,9 @@ class PostsController < ApplicationController
   end
 
   def index
-    # @current_user = session[:users_id]
+    p params
     @posts = Post.where('post_type = ?', 'public').order(created_at: :desc)
+    @comments = Comment.where('posts_id = ?', params[:id] )
   end
 
   def destroy
