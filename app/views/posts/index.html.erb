@@ -26,7 +26,7 @@
         <% end %>
       </p>
     </footer> 
-    <%= form_with scope: :comment, url: comments_create_path, local: true do |form| %>
+    <%= form_with scope: :comment, url: 'comments/create', local: true do |form| %>
       <%= form.label :message %>
       <%= form.text_area(:message, :size => "60x10") %>
       <% hidden_field(:comment, :posts_id, value: post.id) %>

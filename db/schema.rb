@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20200220112906) do
-ActiveRecord::Schema.define(version: 20200219081514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +41,8 @@ ActiveRecord::Schema.define(version: 20200219081514) do
     t.string "password_digest"
   end
 
-  add_foreign_key "posts", "users", column: "recipient_id"
   add_foreign_key "comments", "posts", column: "posts_id"
   add_foreign_key "comments", "users", column: "users_id"
+  add_foreign_key "posts", "users", column: "recipient_id"
   add_foreign_key "posts", "users", column: "users_id"
 end

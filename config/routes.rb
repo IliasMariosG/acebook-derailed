@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-=======
 
   
->>>>>>> comment_testing
   get 'posts/index'
 
   get '/posts/:id/edit', to: 'posts#edit'
